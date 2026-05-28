@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gimnasio CAI Elche | Artes Marciales, Fitness y Salud</title>
+    <meta name="description" content="Gimnasio CAI en Elche. Jiu-Jitsu, Karate, MMA, Pilates, Ciclo Indoor y mas. Carrer Antonio Moya Albaladejo, 34. Llama al 966 67 39 77.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Gimnasio CAI Elche | Artes Marciales y Fitness">
+    <meta property="og:description" content="Tu gimnasio de referencia en Elche. Artes marciales, fitness y ambiente familiar.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta name="theme-color" content="#1A1A1A">
+    <link rel="canonical" href="https://gimnasiocaielche.es">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --yellow: #FFD700;
+            --yellow-dark: #E6C200;
+            --black: #1A1A1A;
+            --black-pure: #000000;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray: #E0E0E0;
+            --gray-mid: #888888;
+            --gray-dark: #333333;
+            --nav-height: 60px;
+            --section-pad: 80px;
+            --section-pad-m: 48px;
+        }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 50px;
+        }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Nav */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--nav-height);
+            background: var(--black-pure);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+            transition: box-shadow 0.3s ease;
+        }
+        .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.5); }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--yellow);
+            letter-spacing: 1px;
+        }
+        .nav-logo svg { width: 32px; height: 32px; }
+        .nav-links {
+            display: none;
+            gap: 24px;
+        }
+        .nav-links a {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--yellow); }
+        .nav-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .nav-toggle svg { width: 28px; height: 28px; stroke: var(--yellow); }
+        .nav-mobile {
+            display: none;
+            position: absolute;
+            top: var(--nav-height);
+            left: 0; right: 0;
+            background: var(--black-pure);
+            padding: 20px;
+            flex-direction: column;
+            gap: 16px;
+            border-top: 1px solid var(--gray-dark);
+        }
+        .nav-mobile.open { display: flex; }
+        .nav-mobile a {
+            color: var(--white);
+            font-size: 1rem;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+        .nav-mobile a:hover { color: var(--yellow); }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+            .nav-toggle { display: none; }
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: calc(var(--nav-height) + 40px) 20px 60px;
+            background: linear-gradient(160deg, var(--black-pure) 0%, #2a2a00 40%, var(--black) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(255,215,0,0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .hero-logo {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        .hero-logo svg { width: 100%; height: 100%; }
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 900;
+            color: var(--yellow);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .hero-sub {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--white);
+            font-weight: 300;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        .hero-tagline {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: var(--gray);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+        .btn svg { width: 20px; height: 20px; }
+        .btn-primary {
+            background: var(--yellow);
+            color: var(--black);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--yellow);
+            border: 2px solid var(--yellow);
+        }
+        .btn-secondary:hover { background: var(--yellow); color: var(--black); }
+        .hero-rating {
+            margin-top: 32px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        .hero-rating svg { width: 18px; height: 18px; fill: var(--yellow); }
+        .hero-rating strong { color: var(--yellow); }
+
+        /* Sections */
+        .section {
+            padding: var(--section-pad-m) 20px;
+        }
+        @media (min-width: 768px) {
+            .section { padding: var(--section-pad) 40px; }
+        }
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--black);
+        }
+        .section-title span { color: var(--yellow-dark); }
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-mid);
+            font-size: 1rem;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Actividades */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .activities-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        }
+        .activity-card {
+            background: var(--gray-light);
+            border-radius: 12px;
+            padding: 24px 16px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            border: 1px solid transparent;
+        }
+        .activity-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            border-color: var(--yellow);
+            background: var(--white);
+        }
+        .activity-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 12px;
+            background: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .activity-icon svg { width: 28px; height: 28px; stroke: var(--yellow); fill: none; stroke-width: 2; }
+        .activity-card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .activity-card p {
+            font-size: 0.8rem;
+            color: var(--gray-mid);
+        }
+
+        /* Horarios */
+        #horarios { background: var(--black); color: var(--white); }
+        #horarios .section-title { color: var(--white); }
+        #horarios .section-subtitle { color: var(--gray); }
+        .schedule-wrap {
+            overflow-x: auto;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 12px;
+            border: 1px solid var(--gray-dark);
+        }
+        .schedule-table {
+            width: 100%;
+            min-width: 700px;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        .schedule-table th {
+            background: var(--yellow);
+            color: var(--black);
+            padding: 12px 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+        }
+        .schedule-table td {
+            padding: 10px 8px;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-dark);
+            color: var(--gray);
+        }
+        .schedule-table tr:hover td { background: rgba(255,215,0,0.05); }
+        .schedule-table td:first-child {
+            font-weight: 700;
+            color: var(--yellow);
+            white-space: nowrap;
+        }
+        .schedule-table td:not(:first-child).has-class {
+            color: var(--white);
+            font-weight: 500;
+        }
+        .schedule-table td:not(:first-child).has-class.jiu-jitsu { color: #FFD700; font-weight: 700; }
+        .schedule-table td:not(:first-child).has-class.mma { color: #FF6B6B; }
+        .schedule-table td:not(:first-child).has-class.karate { color: #4ECDC4; }
+        .schedule-table td:not(:first-child).has-class.pilates { color: #A8E6CF; }
+        .schedule-table td:not(:first-child).has-class.ciclo { color: #87CEEB; }
+        .schedule-table td:not(:first-child).has-class.body { color: #DDA0DD; }
+        .schedule-table td:not(:first-child).has-class.zumba { color: #FF69B4; }
+        .schedule-table td:not(:first-child).has-class.gap { color: #98FB98; }
+        .schedule-table td:not(:first-child).has-class.freeboxing { color: #FFA07A; }
+        .schedule-table td:not(:first-child).has-class.rhythmica { color: #B0C4DE; }
+
+        .hours-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 32px;
+            padding: 20px;
+            background: rgba(255,215,0,0.05);
+            border-radius: 12px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hours-item {
+            text-align: center;
+        }
+        .hours-item strong { color: var(--yellow); display: block; }
+        .hours-item span { font-size: 0.85rem; color: var(--gray); }
+
+        /* Tarifas */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .pricing-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        .pricing-card {
+            background: var(--gray-light);
+            border-radius: 12px;
+            padding: 32px 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+        }
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--yellow);
+        }
+        .pricing-card.featured {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--yellow);
+        }
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--yellow);
+            color: var(--black);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .pricing-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .pricing-price {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--yellow-dark);
+            margin-bottom: 4px;
+        }
+        .pricing-card.featured .pricing-price { color: var(--yellow); }
+        .pricing-period {
+            font-size: 0.8rem;
+            color: var(--gray-mid);
+            margin-bottom: 16px;
+        }
+        .pricing-card.featured .pricing-period { color: var(--gray); }
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .pricing-features li {
+            font-size: 0.85rem;
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .pricing-features li svg { width: 16px; height: 16px; stroke: var(--yellow-dark); flex-shrink: 0; margin-top: 2px; }
+        .pricing-card.featured .pricing-features li svg { stroke: var(--yellow); }
+        .pricing-card .btn { width: 100%; justify-content: center; }
+
+        /* Por que elegirnos */
+        .why-section { background: var(--gray-light); }
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .why-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .why-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .why-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            background: var(--black);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .why-icon svg { width: 32px; height: 32px; stroke: var(--yellow); fill: none; stroke-width: 1.5; }
+        .why-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .why-card p {
+            font-size: 0.9rem;
+            color: var(--gray-mid);
+            line-height: 1.6;
+        }
+
+        /* Alumnos destacados */
+        .alumni-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .alumni-content p {
+            font-size: 1rem;
+            color: var(--gray-dark);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+        .alumni-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        .alumni-stat {
+            text-align: center;
+            padding: 20px 24px;
+            background: var(--gray-light);
+            border-radius: 12px;
+            min-width: 140px;
+        }
+        .alumni-stat .number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--yellow-dark);
+        }
+        .alumni-stat .label {
+            font-size: 0.8rem;
+            color: var(--gray-mid);
+            margin-top: 4px;
+        }
+
+        /* Resenas */
+        .reviews-section { background: var(--black); color: var(--white); }
+        .reviews-section .section-title { color: var(--white); }
+        .reviews-section .section-subtitle { color: var(--gray); }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .review-card {
+            background: var(--gray-dark);
+            border-radius: 12px;
+            padding: 28px 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .review-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+        .review-stars svg { width: 18px; height: 18px; fill: var(--yellow); }
+        .review-text {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--black);
+            font-size: 0.9rem;
+        }
+        .review-name { font-weight: 600; font-size: 0.9rem; }
+        .review-source { font-size: 0.75rem; color: var(--gray-mid); }
+
+        /* Contacto */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 12px 16px;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+            background: var(--white);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--yellow-dark);
+            box-shadow: 0 0 0 3px rgba(230,194,0,0.15);
+        }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .contact-item-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--black);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-item-icon svg { width: 22px; height: 22px; stroke: var(--yellow); fill: none; stroke-width: 1.5; }
+        .contact-item-text h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
+        .contact-item-text p { font-size: 0.85rem; color: var(--gray-mid); }
+        .contact-item-text a { color: var(--yellow-dark); font-weight: 600; }
+        .contact-item-text a:hover { text-decoration: underline; }
+        .contact-map {
+            margin-top: 16px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--gray);
+            height: 200px;
+        }
+        .contact-map iframe { width: 100%; height: 100%; border: 0; }
+
+        /* Footer */
+        .footer {
+            background: var(--black-pure);
+            color: var(--gray);
+            text-align: center;
+            padding: 32px 20px;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--gray-dark);
+        }
+        .footer a { color: var(--yellow); }
+        .footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<!-- Demo Banner -->
+<div style="position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;color:#fff;text-align:center;padding:10px;font-size:13px;z-index:9999;font-family:sans-serif">Esta es una web de demostracion gratuita creada por <strong>Tu Agencia</strong> -- <a href="https://tu-dominio.es" style="color:#a78bfa">Quieres la tuya?</a></div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+    <a href="#" class="nav-logo">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,2 38,20 20,38 2,20" fill="#FFD700" opacity="0.15" stroke="#FFD700" stroke-width="1.5"/>
+            <path d="M14 12 C14 12 16 10 20 10 C24 10 26 12 26 12" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="20" cy="14" r="3" stroke="#FFD700" stroke-width="1.5" fill="none"/>
+            <path d="M17 17 L15 24 L13 22" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M23 17 L25 24 L27 22" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M17 22 L20 28 L23 22" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 24 L12 30" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M25 24 L28 30" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        GIMNASIO CAI
+    </a>
+    <div class="nav-links">
+        <a href="#actividades">Actividades</a>
+        <a href="#horarios">Horarios</a>
+        <a href="#tarifas">Tarifas</a>
+        <a href="#resenas">Resenas</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+    </button>
+    <div class="nav-mobile" id="navMobile">
+        <a href="#actividades">Actividades</a>
+        <a href="#horarios">Horarios</a>
+        <a href="#tarifas">Tarifas</a>
+        <a href="#resenas">Resenas</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="inicio">
+    <div class="hero-logo">
+        <svg viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="70,5 135,70 70,135 5,70" fill="#FFD700" opacity="0.1" stroke="#FFD700" stroke-width="2"/>
+            <circle cx="70" cy="42" r="12" stroke="#FFD700" stroke-width="2.5" fill="none"/>
+            <path d="M58 54 C58 54 62 50 70 50 C78 50 82 54 82 54" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+            <path d="M62 62 L55 82 L48 76" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M78 62 L85 82 L92 76" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M62 74 L70 96 L78 74" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M55 82 L42 100" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M85 82 L98 100" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M64 96 L58 115" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M76 96 L82 115" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round"/>
+            <text x="70" y="128" text-anchor="middle" fill="#FFD700" font-size="11" font-weight="900" font-family="system-ui, sans-serif" letter-spacing="3">CAI</text>
+        </svg>
+    </div>
+    <h1>Gimnasio CAI</h1>
+    <p class="hero-sub">Artes Marciales -- Fitness -- Salud</p>
+    <p class="hero-tagline">Forja tu cuerpo, disciplina tu mente. El gimnasio de referencia en Elche para artes marciales y fitness.</p>
+    <div class="hero-ctas">
+        <a href="tel:+34966673977" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Llamamos
+        </a>
+        <a href="https://www.instagram.com/gym_cai_elche/" target="_blank" rel="noopener" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+        </a>
+    </div>
+    <div class="hero-rating">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <strong>4.8</strong> en Google Reviews
+    </div>
+</section>
+
+<!-- Actividades -->
+<section class="section" id="actividades">
+    <h2 class="section-title fade-in">Nuestras <span>Actividades</span></h2>
+    <p class="section-subtitle fade-in">Descubre todas las disciplinas que ofrecemos para todos los niveles y edades</p>
+    <div class="activities-grid">
+        <div class="activity-card fade-in">
+            <div class="activity-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12 Q12 8 16 12"/><path d="M8 12 Q12 16 16 12"/><circle cx="9" cy="10" r="1" fill="#FFD700" stroke="none"/><circle cx="15" cy="10" r="1" fill="#FFD700" stroke="none"/></svg>
+            </div>
+            <h3>Jiu-Jitsu</h3>
+            <p>Lun a Vie 21:00-22:00</p>
+        </div>
+        <div class="activity-card fade-in">
+            <div class="activity-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18"/><path d="M18 3v18"/><path d="M6 8h12"/><path d="M6 16h12"/><path d="M10 8v8"/><path d="M14 8v8"/></svg>
+            </div>
+            <h3>Karate</h3>
+            <p>Lun/Mie 17:15-19:15</p>
+        </div>
+        <div class="activity-card fade-in">
+            <div class="activity-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/><path d="M9 9l6 6"/><path d="M15 9l-6 6"/></svg>
+            </div>
+            <h3>Free Boxing</h3>
+            <p>Lun a Jue 19:00-21:00</p>
+        </div>
+        <div class="activity-card fade-in">
+            <div class="activity-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>MMA</h3>
+            <p>Lun/Mie/Vie 10:00-11:00</p>
+        </div>
+        <div class="activity-card fade-in">
+            <div class="activity-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4"/><path d="M12 19v4"/><path d="M4.22 4.22l2.83 2.83"/><path d="M16.95 16.95l2.83 2.83"/><path d="M1 12h4"/><path d="M19 12h4"/><path d="M4.22 19.78l2.83-2.83"/><path d="M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h3>Pilates</h3>
+            <p>Mar/Jue 9:30-21:30</p>
+        </div>
+        <div class="activity-card fade-in">
+            <div class="activity-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>Ciclo Indoor</h3>
+            <p>Lun/Mie/Jue 19:30-21:30</p>
+        </div>
+        <div class="activity-card fade-in">
+            <div class="activity-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <h3>Body Fitness</h3>
+            <p>Lun/Mie 18:30-21:30</p>
+        </div>
+        <div class="activity-card fade-in">
+            <div class="activity-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </div>
+            <h3>Zumba</h3>
+            <p>Vie 18:30 / Lun 20:30</p>
+        </div>
+    </div>
+</section>
+
+<!-- Horarios -->
+<section class="section" id="horarios">
+    <h2 class="section-title fade-in">Horario <span>Semanal</span></h2>
+    <p class="section-subtitle fade-in">Planifica tu semana con todas nuestras actividades</p>
+    <div class="schedule-wrap fade-in">
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Horario</th>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miercoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>9:30-10:30</td>
+                    <td>--</td>
+                    <td class="has-class pilates">Pilates</td>
+                    <td>--</td>
+                    <td class="has-class pilates">Pilates</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>10:00-11:00</td>
+                    <td class="has-class mma">MMA</td>
+                    <td>--</td>
+                    <td class="has-class mma">MMA</td>
+                    <td>--</td>
+                    <td class="has-class mma">MMA</td>
+                </tr>
+                <tr>
+                    <td>17:15-18:15</td>
+                    <td class="has-class karate">Karate Inf.</td>
+                    <td>--</td>
+                    <td class="has-class karate">Karate Inf.</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>17:30-18:30</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td class="has-class rhythmica">Gim. Ritmica Inf.</td>
+                </tr>
+                <tr>
+                    <td>18:15-19:15</td>
+                    <td class="has-class karate">Karate</td>
+                    <td>--</td>
+                    <td class="has-class karate">Karate</td>
+                    <td>--</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>18:30-19:30</td>
+                    <td class="has-class body">Body Fitness</td>
+                    <td class="has-class gap">GAP</td>
+                    <td class="has-class body">Body Fitness</td>
+                    <td class="has-class gap">GAP</td>
+                    <td class="has-class zumba">Zumba</td>
+                </tr>
+                <tr>
+                    <td>19:00-20:00</td>
+                    <td>--</td>
+                    <td class="has-class freeboxing">Free Boxing Inf.</td>
+                    <td>--</td>
+                    <td class="has-class freeboxing">Free Boxing Inf.</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>19:30-20:30</td>
+                    <td class="has-class ciclo">Ciclo Indoor</td>
+                    <td class="has-class pilates">Pilates</td>
+                    <td class="has-class ciclo">Ciclo Indoor</td>
+                    <td class="has-class pilates">Pilates</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>20:00-21:00</td>
+                    <td class="has-class freeboxing">Free Boxing</td>
+                    <td class="has-class freeboxing">Free Boxing</td>
+                    <td class="has-class freeboxing">Free Boxing</td>
+                    <td class="has-class freeboxing">Free Boxing</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>20:00-21:30</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td>--</td>
+                    <td class="has-class jiu-jitsu">Jiu-Jitsu</td>
+                </tr>
+                <tr>
+                    <td>20:30-21:30</td>
+                    <td class="has-class zumba">Zumba</td>
+                    <td class="has-class pilates">Pilates</td>
+                    <td class="has-class body">Body Fitness</td>
+                    <td class="has-class ciclo">Ciclo Ind. / Pilates</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>21:00-22:00</td>
+                    <td class="has-class jiu-jitsu">Jiu-Jitsu</td>
+                    <td class="has-class jiu-jitsu">Jiu-Jitsu</td>
+                    <td class="has-class jiu-jitsu">Jiu-Jitsu</td>
+                    <td class="has-class jiu-jitsu">Jiu-Jitsu</td>
+                    <td>--</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="hours-info fade-in">
+        <div class="hours-item">
+            <strong>Lunes a Viernes</strong>
+            <span>6:00 a 23:00</span>
+        </div>
+        <div class="hours-item">
+            <strong>Sabado</strong>
+            <span>10:00 a 14:00</span>
+        </div>
+        <div class="hours-item">
+            <strong>Domingo</strong>
+            <span>Cerrado</span>
+        </div>
+    </div>
+</section>
+
+<!-- Tarifas -->
+<section class="section" id="tarifas">
+    <h2 class="section-title fade-in">Nuestras <span>Tarifas</span></h2>
+    <p class="section-subtitle fade-in">Planes flexibles adaptados a tus objetivos y presupuesto</p>
+    <div class="pricing-grid">
+        <div class="pricing-card fade-in">
+            <h3>Mensual</h3>
+            <div class="pricing-price">35</div>
+            <div class="pricing-period">euros al mes</div>
+            <ul class="pricing-features">
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Sala de musculacion
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    2 clases dirigidas
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Sin permanencia
+                </li>
+            </ul>
+            <a href="#contacto" class="btn btn-secondary">Elegir plan</a>
+        </div>
+        <div class="pricing-card featured fade-in">
+            <div class="pricing-badge">Popular</div>
+            <h3>Trimestral</h3>
+            <div class="pricing-price">90</div>
+            <div class="pricing-period">30 euros al mes</div>
+            <ul class="pricing-features">
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Acceso completo
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Todas las actividades
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Ahorra 15 euros
+                </li>
+            </ul>
+            <a href="#contacto" class="btn btn-primary">Elegir plan</a>
+        </div>
+        <div class="pricing-card fade-in">
+            <h3>Anual</h3>
+            <div class="pricing-price">300</div>
+            <div class="pricing-period">25 euros al mes</div>
+            <ul class="pricing-features">
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Acceso ilimitado
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Todas las actividades
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Descuento especial
+                </li>
+            </ul>
+            <a href="#contacto" class="btn btn-secondary">Elegir plan</a>
+        </div>
+        <div class="pricing-card fade-in">
+            <h3>Familia</h3>
+            <div class="pricing-price">--</div>
+            <div class="pricing-period">tarifas especiales</div>
+            <ul class="pricing-features">
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Descuento por miembro
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Actividades infantiles
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Consulta precios
+                </li>
+            </ul>
+            <a href="#contacto" class="btn btn-secondary">Consultar</a>
+        </div>
+    </div>
+</section>
+
+<!-- Por que elegirnos -->
+<section class="section why-section">
+    <h2 class="section-title fade-in">Por Que <span>Elegirnos</span></h2>
+    <p class="section-subtitle fade-in">Mas que un gimnasio, una comunidad</p>
+    <div class="why-grid">
+        <div class="why-card fade-in">
+            <div class="why-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h3>Instructores Cualificados</h3>
+            <p>Profesionales con anos de experiencia en artes marciales y fitness, comprometidos con tu progreso personal y deportivo.</p>
+        </div>
+        <div class="why-card fade-in">
+            <div class="why-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <h3>Ambiente Familiar</h3>
+            <p>Un espacio donde todas las edades son bienvenidas. Desde ninos en karate infantil hasta adultos en Jiu-Jitsu, todos forman parte de la familia CAI.</p>
+        </div>
+        <div class="why-card fade-in">
+            <div class="why-icon">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Instalaciones Completas</h3>
+            <p>Sala de musculacion equipada, tatami para artes marciales, sala de ciclo indoor y espacios dedicados para cada disciplina.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Alumnos Destacados -->
+<section class="section" id="alumnos">
+    <h2 class="section-title fade-in">Alumnos <span>Destacados</span></h2>
+    <p class="section-subtitle fade-in">Formando campeones dentro y fuera del tatami</p>
+    <div class="alumni-content fade-in">
+        <p>Gimnasio CAI cuenta con una solida trayectoria en la formacion de luchadores y atletas que han competido a nivel regional y nacional en diversas disciplinas de artes marciales.</p>
+        <p>Nuestro compromiso con la excelencia deportiva y la formacion integral ha convertido a CAI en un referente en la comunidad deportiva de Elche, produciendo talento en deportes de combate que representan a nuestra ciudad en competiciones de toda Espana.</p>
+        <div class="alumni-stats">
+            <div class="alumni-stat">
+                <div class="number">15+</div>
+                <div class="label">Anos de experiencia</div>
+            </div>
+            <div class="alumni-stat">
+                <div class="number">50+</div>
+                <div class="label">Competidores formados</div>
+            </div>
+            <div class="alumni-stat">
+                <div class="number">30+</div>
+                <div class="label">Medallas obtenidas</div>
+            </div>
+            <div class="alumni-stat">
+                <div class="number">4.8</div>
+                <div class="label">Valoracion Google</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Resenas -->
+<section class="section reviews-section" id="resenas">
+    <h2 class="section-title fade-in">Lo Que Dicen <span>Nuestros Socios</span></h2>
+    <p class="section-subtitle fade-in">Opiniones reales de quienes entrenan con nosotros</p>
+    <div class="reviews-grid">
+        <div class="review-card fade-in">
+            <div class="review-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="review-text">"Los instructores son excepcionales. Se nota que tienen pasion por lo que hacen y el ambiente es muy familiar. Mis dos hijos entrenan karate aqui y yo hago Jiu-Jitsu. Es como una segunda familia."</p>
+            <div class="review-author">
+                <div class="review-avatar">MR</div>
+                <div>
+                    <div class="review-name">Maria R.</div>
+                    <div class="review-source">Google Reviews</div>
+                </div>
+            </div>
+        </div>
+        <div class="review-card fade-in">
+            <div class="review-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="review-text">"La variedad de clases es impresionante. Desde Pilates por la manana hasta Jiu-Jitsu por la noche, hay opciones para todos los horarios y edades. Llevo tres anos y no cambiaria."</p>
+            <div class="review-author">
+                <div class="review-avatar">JL</div>
+                <div>
+                    <div class="review-name">Jose Luis G.</div>
+                    <div class="review-source">Google Reviews</div>
+                </div>
+            </div>
+        </div>
+        <div class="review-card fade-in">
+            <div class="review-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="review-text">"Las instalaciones estan muy bien cuidadas y el espiritu de comunidad es lo que mas me gusta. Aqui no eres un numero, todos se conocen y se ayudan. Las clases de MMA son de primer nivel."</p>
+            <div class="review-author">
+                <div class="review-avatar">AP</div>
+                <div>
+                    <div class="review-name">Antonio P.</div>
+                    <div class="review-source">Google Reviews</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacto -->
+<section class="section" id="contacto">
+    <h2 class="section-title fade-in">Contacta <span>Con Nosotros</span></h2>
+    <p class="section-subtitle fade-in">Ven a conocernos o escribenos para mas informacion</p>
+    <div class="contact-grid">
+        <form class="contact-form fade-in" onsubmit="return false;">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Telefono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="600 000 000">
+            </div>
+            <div class="form-group">
+                <label for="interes">Actividad de interes</label>
+                <select id="interes" name="interes">
+                    <option value="">Selecciona una opcion</option>
+                    <option value="jiu-jitsu">Jiu-Jitsu</option>
+                    <option value="karate">Karate</option>
+                    <option value="free-boxing">Free Boxing</option>
+                    <option value="mma">MMA</option>
+                    <option value="pilates">Pilates</option>
+                    <option value="ciclo-indoor">Ciclo Indoor</option>
+                    <option value="body-fitness">Body Fitness</option>
+                    <option value="gap">GAP</option>
+                    <option value="zumba">Zumba</option>
+                    <option value="gimnasia-ritmica">Gimnastica Ritmica</option>
+                    <option value="musculacion">Sala de Musculacion</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Cuentanos en que podemos ayudarte..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Enviar mensaje
+            </button>
+        </form>
+        <div class="contact-info fade-in">
+            <div class="contact-item">
+                <div class="contact-item-icon">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="contact-item-text">
+                    <h4>Direccion</h4>
+                    <p>Carrer Antonio Moya Albaladejo, 34<br>03204 Elx, Alicante</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <div class="contact-item-text">
+                    <h4>Telefono</h4>
+                    <p><a href="tel:+34966673977">966 67 39 77</a></p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </div>
+                <div class="contact-item-text">
+                    <h4>Instagram</h4>
+                    <p><a href="https://www.instagram.com/gym_cai_elche/" target="_blank" rel="noopener">@gym_cai_elche</a></p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="contact-item-text">
+                    <h4>Horario de apertura</h4>
+                    <p>Lun-Vie: 6:00-23:00<br>Sab: 10:00-14:00<br>Dom: Cerrado</p>
+                </div>
+            </div>
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3130.5!2d-0.685!3d38.27!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCarrer+Antonio+Moya+Albaladejo+34+Elche!5e0!3m2!1ses!2ses!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicacion Gimnasio CAI"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>2026 Gimnasio CAI -- Carrer Antonio Moya Albaladejo, 34, 03204 Elx, Alicante -- <a href="tel:+34966673977">966 67 39 77</a></p>
+    <p style="margin-top:8px;opacity:0.6;">Web de demostracion creada por <a href="https://tu-dominio.es">Tu Agencia</a></p>
+</footer>
+
+<script>
+    // Sticky nav shadow
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMobile = document.getElementById('navMobile');
+    navToggle.addEventListener('click', function() {
+        navMobile.classList.toggle('open');
+    });
+    // Close mobile nav on link click
+    navMobile.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            navMobile.classList.remove('open');
+        });
+    });
+
+    // Fade-in on scroll with IntersectionObserver
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    fadeElements.forEach(function(el) { observer.observe(el); });
+</script>
+
+<!-- Tracking Script -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXX-X');
+</script> -->
+
+</body>
+</html>

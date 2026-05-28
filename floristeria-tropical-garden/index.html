@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tropical Garden · Floristería de autor en Murcia</title>
+  <meta name="description" content="Demo web premium para Floristería Tropical Garden: ramos, detalles florales y bodas en Murcia con encargos por WhatsApp." />
+  <meta property="og:title" content="Tropical Garden · Flores con presencia" />
+  <meta property="og:description" content="Floristería boutique en Murcia: bodas, ramos y encargos por WhatsApp." />
+  <meta property="og:image" content="https://robertoalmela.com/web-deploy/tropical-garden/assets/img/ig-1.jpg" />
+  <link rel="preload" href="assets/img/ig-1.jpg" as="image" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <nav class="nav">
+    <a class="brand" href="#top"><img src="assets/img/profile.jpg" alt="Tropical Garden"/> Tropical Garden</a>
+    <div>
+      <a href="#bodas">Bodas</a>
+      <a href="#encargos">Encargos</a>
+      <a href="#galeria">Galería</a>
+      <a class="pill" href="https://wa.me/34868958061?text=Hola%20Tropical%20Garden%2C%20quiero%20hacer%20un%20encargo%20floral" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero reveal">
+      <div class="hero-copy">
+        <p class="eyebrow">Floristería boutique · Murcia</p>
+        <h1>Flores que no decoran. <span>Construyen una escena.</span></h1>
+        <p class="lead">Ramos, detalles florales y bodas con una dirección visual más editorial: color, textura, movimiento y una presencia que se recuerda.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/34868958061?text=Hola%2C%20quiero%20un%20encargo%20floral.%20Fecha%3A%20%2F%20Presupuesto%3A%20%2F%20Estilo%3A" target="_blank" rel="noopener">Hacer encargo por WhatsApp</a>
+          <a class="btn ghost" href="#galeria">Ver estilo</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Composición floral Tropical Garden">
+        <img class="card c1" src="assets/img/ig-1.jpg" alt="Trabajo floral Tropical Garden" />
+        <img class="card c2" src="assets/img/ig-2.jpg" alt="Detalle floral para evento" />
+        <img class="card c3" src="assets/img/ig-3.jpg" alt="Decoración floral de boda" />
+      </div>
+    </section>
+
+    <section class="statement reveal">
+      <p>Para parejas, regalos y espacios que necesitan algo más que “un ramo bonito”. Una floristería con lenguaje propio: tropical, sensible y contemporánea.</p>
+    </section>
+
+    <section id="bodas" class="split reveal">
+      <div><p class="eyebrow">Bodas & eventos</p><h2>Diseño floral con intención fotográfica.</h2></div>
+      <div class="grid-text">
+        <p>Ramos de novia, prendidos, centros, ceremonia, seating y rincones con una línea visual coherente.</p>
+        <p>La propuesta puede nacer desde vuestro vestido, paleta, localización o moodboard. El resultado: flores que acompañan la historia y quedan bien en cámara.</p>
+      </div>
+    </section>
+
+    <section id="encargos" class="order reveal">
+      <div>
+        <p class="eyebrow">Encargos rápidos</p>
+        <h2>Un bot de WhatsApp sencillo para vender sin fricción.</h2>
+        <p>La web puede lanzar un flujo guiado con mensaje pre-rellenado: fecha, presupuesto, ocasión, estilo y dirección. Más adelante se puede conectar con WhatsApp Business API / ManyChat / Make para automatizar respuestas.</p>
+      </div>
+      <form class="fake-bot" onsubmit="sendWhatsApp(event)">
+        <label>Ocasión <select id="occasion"><option>Ramo regalo</option><option>Boda</option><option>Centro floral</option><option>Evento</option></select></label>
+        <label>Presupuesto <select id="budget"><option>30-50€</option><option>50-90€</option><option>90-150€</option><option>+150€</option></select></label>
+        <label>Estilo <input id="style" placeholder="salvaje, elegante, tropical…" /></label>
+        <button class="btn primary" type="submit">Enviar briefing por WhatsApp</button>
+      </form>
+    </section>
+
+    <section id="galeria" class="gallery reveal">
+      <p class="eyebrow">Instagram real</p>
+      <h2>Material visual de @tropicalgardenestudio</h2>
+      <div class="gallery-grid">
+        <img src="assets/img/ig-1.jpg" alt="Trabajo real de Tropical Garden extraído de Instagram" />
+        <img src="assets/img/ig-2.jpg" alt="Trabajo real de Tropical Garden extraído de Instagram" />
+        <img src="assets/img/ig-3.jpg" alt="Trabajo real de Tropical Garden extraído de Instagram" />
+      </div>
+    </section>
+
+    <section class="contact reveal">
+      <p class="eyebrow">C. Pío XII, 25 · Murcia</p>
+      <h2>Flores con identidad para regalar, casarse o transformar un espacio.</h2>
+      <a class="btn primary" href="https://wa.me/34868958061" target="_blank" rel="noopener">Abrir WhatsApp</a>
+      <a class="btn ghost" href="https://www.instagram.com/tropicalgardenestudio/" target="_blank" rel="noopener">Ver Instagram</a>
+    </section>
+  </main>
+
+  <footer>Demo creada para propuesta comercial · Fotos reales públicas de Instagram · Desarrollo por Roberto Almela</footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
