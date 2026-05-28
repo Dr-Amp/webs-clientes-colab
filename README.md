@@ -1,15 +1,59 @@
-# Webs clientes
+# Webs clientes · workspace colaborativo
 
-Repositorio colaborativo inicial para trabajar con 3 proyectos web:
+Este repo es el punto de entrada para colaborar entre Roberto y un colega programador en un sistema de captación, propuesta y desarrollo de webs para negocios locales.
 
+No está pensado solo como un repositorio de código.
+También documenta:
+- cómo buscar posibles clientes,
+- cómo evaluarlos,
+- cómo preparar una propuesta,
+- cómo pasar de idea a demo,
+- y cómo organizar la colaboración técnica.
+
+## Qué hay dentro
+
+### Documentación
+- `docs/vision.md` → visión general del proyecto
+- `docs/workflow.md` → proceso de búsqueda, filtrado y propuesta
+- `docs/ideal-client.md` → perfil de cliente ideal
+- `docs/collaboration.md` → forma de trabajar entre Roberto y colaborador
+
+### Plantillas
+- `templates/cold-message.md` → mensaje en frío base
+- `templates/audit-template.md` → mini auditoría rápida
+- `templates/proposal-template.md` → estructura de propuesta
+
+### Datos
+- `data/leads-example.csv` → ejemplo de tabla de leads
+
+### Ejemplos de webs / bases visuales
 - `gimnasio-cai/`
 - `hospital-veterinario-san-vicente/`
 - `floristeria-tropical-garden/`
 
-## Estructura
+## Qué debe hacer un colaborador al entrar
 
-Cada carpeta contiene una web independiente.
+1. Leer este `README.md`
+2. Leer `docs/vision.md`
+3. Leer `docs/workflow.md`
+4. Leer `docs/ideal-client.md`
+5. Leer `docs/collaboration.md`
+6. Revisar `templates/`
+7. Revisar las carpetas de ejemplo
+8. Proponer mejoras al sistema o al scaffold técnico
 
-## Objetivo
+## Objetivo práctico
 
-Usar este repo como punto de partida colaborativo entre Roberto y su colega antes de separar cada web en su propio repositorio si hace falta.
+Construir un sistema reutilizable para detectar negocios locales con potencial, enseñarles mejoras claras y convertir eso en proyectos web reales.
+
+## Cómo encaja el código
+
+Las carpetas de webs sirven como ejemplos, pruebas o semillas visuales.
+Más adelante, cada cliente real puede separarse en su propio repo si hace falta.
+
+## Próximos pasos recomendados
+
+- definir un scaffold técnico base reutilizable
+- crear un sistema simple de scoring de leads
+- decidir stack para demos rápidas
+- separar proyectos reales por repositorio cuando empiecen a madurar

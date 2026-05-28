@@ -1,0 +1,4 @@
+nombre,ciudad,sector,web,instagram,estado_web,oportunidad,notas,siguiente_paso
+Ejemplo Gym,Alicante,gimnasio,https://ejemplo.com,@ejemplo,antigua,alta,"Marca potente pero web floja",demo
+Ejemplo Vet,Elche,veterinario,https://ejemplo-vet.com,@ejemplovet,mejorable,media,"Buena base pero UX floja",auditoria
+Ejemplo Flor,Murcia,floristeria,,@ejemploflor,sin_web,alta,"Muy visual, ideal para landing",mensaje
