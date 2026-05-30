@@ -331,7 +331,7 @@ h1, h2, h3, p { text-wrap: balance; }
   .section-kicker > p, .demo-copy dd, .service-row p, .method-steps p, .proof-cta p, .final-cta p:not(.eyebrow) { text-wrap: pretty; }
 }
 
-/* KOORO source-base mount: keep KOORO clean, no translucent grey patina */
+/* KOORO source-base mount: keep Aino clean, no translucent grey patina */
 .source-base-shell {
   position: relative;
   min-height: 100dvh;
