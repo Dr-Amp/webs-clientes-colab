@@ -2,55 +2,66 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const landings = await getCollection('landings');
+const landings = (await getCollection('landings')).sort((a, b) => a.data.business.name.localeCompare(b.data.business.name, 'es'));
+const toneMap: Record<string, string> = {
+  floristeria: 'Editorial botánico / compra por WhatsApp',
+  'gimnasio-artes-marciales': 'Energía local / horarios claros',
+  'veterinaria-24h': 'Confianza crítica / urgencias visibles',
+};
 ---
-<BaseLayout title="Ejemplos de webs locales" description="Ejemplos conceptuales de webs para negocios locales.">
-  <main class="site-shell">
-    <nav class="topbar" aria-label="Navegación principal">
-      <a class="brand-mark" href="/" aria-label="Volver al inicio">
-        <span class="brand-symbol">bl</span>
-        <span>bonita local</span>
-      </a>
-      <div class="nav-actions">
-        <a href="/">Inicio</a>
-        <a class="nav-cta" href="mailto:hola@example.com?subject=Quiero%20una%20web%20para%20mi%20negocio">Pedir presupuesto</a>
+<BaseLayout title="KOORO Studio — estudios raw" description="Archivo KOORO de muestras raw para convertir bocetos locales en webs modernas y coherentes.">
+  <main class="kooro-archive" aria-labelledby="archive-title">
+    <nav class="kooro-nav" aria-label="Navegación principal">
+      <a class="kooro-wordmark" href="/" aria-label="Volver a KOORO Studio">KOORO</a>
+      <div>
+        <a href="/" class="kooro-link">Base Aino</a>
+        <a href="mailto:hola@example.com?subject=KOORO%20Studio" class="kooro-link kooro-link--solid">Contacto</a>
       </div>
     </nav>
 
-    <section class="hero-shell" aria-labelledby="examples-title">
-      <aside class="sticky-intro">
-        <p class="availability">Ejemplos conceptuales</p>
-        <div class="intro-card">
-          <p class="eyebrow">Demos para comparar enfoque</p>
-          <h1 id="examples-title">Ideas de web para negocios locales.</h1>
-          <p class="hero-lead">Estas propuestas sirven para revisar tono, estructura y llamadas a la acción antes de preparar una web real con contenido definitivo.</p>
-          <div class="hero-ctas">
-            <a class="button button-primary" href="/">Volver al inicio</a>
-          </div>
-        </div>
-      </aside>
+    <header class="kooro-hero">
+      <p class="kooro-kicker">Raw studies / integración visual</p>
+      <h1 id="archive-title">Muestras sin disfrazar, pero dentro de KOORO.</h1>
+      <p>
+        Los HTML raw siguen existiendo como material de estudio. Aquí ya no compiten con su estilo propio: cada muestra se reencuadra como ficha editorial KOORO y el botón raw queda para abrir el boceto original cuando haga falta auditarlo.
+      </p>
+      <ul class="kooro-metrics" aria-label="Estado del archivo">
+        <li><strong>{landings.length}</strong><span>raw demos</span></li>
+        <li><strong>Aino</strong><span>base visual</span></li>
+        <li><strong>v0</strong><span>pendiente de rebrand</span></li>
+      </ul>
+    </header>
 
-      <div class="editorial-scroll">
-        <div class="case-grid">
-          {landings.map((entry, index) => (
-            <article class="case-card botanical">
-              <div class="case-art" aria-hidden="true">
-                <span class="case-index">{String(index + 1).padStart(2, '0')}</span>
-                <div class="browser-line"></div>
-                <div class="case-title-bars"><i></i><i></i><i></i></div>
-                <div class="case-mosaic"><span></span><span></span><span></span></div>
+    <section class="raw-study-grid" aria-label="Muestras de webs raw">
+      {landings.map((entry, index) => {
+        const sectorLabel = toneMap[entry.data.business.sector] ?? entry.data.business.sector;
+        const slug = entry.id.replace(/\..*$/, '');
+        const shortName = entry.data.business.name.split(' ')[0];
+        return (
+          <article class="raw-study-card">
+            <a class="raw-study-frame" href={entry.data.rawDemoPath} aria-label={`Abrir raw demo de ${entry.data.business.name}`}>
+              <div class={`raw-study-visual raw-study-visual--${slug}`} aria-hidden="true">
+                <div class="raw-ui-top"><i></i><i></i><i></i></div>
+                <div class="raw-ui-title">{shortName}</div>
+                <div class="raw-ui-layout">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+                <div class="raw-ui-strip"><b>RAW</b><b>HTML</b><b>{entry.data.business.city}</b></div>
               </div>
-              <div class="case-copy">
-                <p>{entry.data.business.sector}</p>
-                <h2>{entry.data.business.name}</h2>
-                <span>{entry.data.business.city}</span>
-                <strong>{entry.data.seo.description}</strong>
-                {entry.data.rawDemoPath && <a class="button button-primary" href={entry.data.rawDemoPath}>Abrir ejemplo</a>}
+              <span>{String(index + 1).padStart(2, '0')}</span>
+            </a>
+            <div class="raw-study-copy">
+              <p>{entry.data.business.city} · {sectorLabel}</p>
+              <h2>{entry.data.business.name}</h2>
+              <strong>{entry.data.seo.description}</strong>
+              <div class="raw-study-actions">
+                {entry.data.rawDemoPath && <a href={entry.data.rawDemoPath}>Abrir raw</a>}
+                <a href="/aino/work/">Ver lenguaje base</a>
               </div>
-            </article>
-          ))}
-        </div>
-      </div>
+            </div>
+          </article>
+        );
+      })}
     </section>
   </main>
 </BaseLayout>
