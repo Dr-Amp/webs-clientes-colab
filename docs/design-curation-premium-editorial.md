@@ -13,7 +13,7 @@ Dossier usado: `/home/dr_amp/.hermes/reports/kanban/webs-clientes-colab-design-s
 7. AW Portfolio como recordatorio de identidad gráfica: titulares con serif display grande y carácter propio, sin añadir canvas ni efectos pesados.
 8. Criterio de honestidad: las demos se presentan como ejemplos por sector, no como testimonios o resultados reales.
 
-9. Aino se adopta como base visual/código principal para esta rama: montaje navegable completo en `public/aino/`, con `/` abriéndolo como banco de trabajo. Criterio: usar estructura editorial, navegación y ritmo como punto de partida, no quedarse en una reinterpretación amarilla.
+9. KOORO se adopta como base visual/código principal para esta rama: montaje navegable completo en `public/aino/`, con `/` abriéndolo como banco de trabajo. Criterio: usar estructura editorial, navegación y ritmo como punto de partida, no quedarse en una reinterpretación amarilla.
 
 ## Criterios de rechazo usados
 
