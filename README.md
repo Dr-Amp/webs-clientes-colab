@@ -33,9 +33,9 @@ También documenta:
 - `astro.config.mjs`, `tailwind.config.mjs`, `tsconfig.json` → configuración base estática
 - `src/content/config.ts` → schema de landings locales: negocio, sector, CTAs, SEO y localización
 - `src/content/landings/` → fichas de gimnasio, veterinaria y floristería sin reescribir los HTML raw
-- `src/pages/index.astro` → entrada de desarrollo que monta la base visual Aino en pantalla completa
+- `src/pages/index.astro` → entrada de desarrollo que monta la base visual KOORO en pantalla completa
 - `src/pages/landings/` → listado interno generado desde el content schema
-- `public/aino/` → source mount Aino completo/navegable usado como base visual y de interacción
+- `public/aino/` → source mount KOORO completo/navegable usado como base visual y de interacción
 - `docs/scaffold-astro-tailwind.md` → guía para crear nuevas landings y validar el cambio de stack
 
 ### Plantillas
@@ -78,7 +78,7 @@ Construir un sistema reutilizable para detectar negocios locales con potencial, 
 Las carpetas de webs sirven como ejemplos, pruebas o semillas visuales.
 Más adelante, cada cliente real puede separarse en su propio repo si hace falta.
 
-La base visual principal de esta rama ahora es `public/aino/`: un montaje navegable del source Aino adaptado a ruta local. La home Astro (`/`) lo abre en pantalla completa como banco de trabajo para convertirlo en la web de desarrollo de webs para comercios locales.
+La base visual principal de esta rama ahora es `public/aino/`: un montaje navegable del source KOORO adaptado a ruta local. La home Astro (`/`) lo abre en pantalla completa como banco de trabajo para convertirlo en la web de desarrollo de webs para comercios locales.
 
 Nota práctica: esta base sirve para desarrollo/criterio visual. Antes de publicarla como web final hay que sustituir marca, textos, casos, imágenes y cualquier asset externo por material propio/licenciado.
 

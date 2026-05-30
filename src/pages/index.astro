@@ -4,31 +4,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const ainoBase = '/aino/';
 const quickLinks = [
   ['Base', '/aino/'],
-  ['Work', '/aino/work/'],
-  ['Services', '/aino/services/'],
-  ['Contact', '/aino/contact/'],
+  ['Webs', '/aino/work/'],
+  ['Servicios', '/aino/services/'],
+  ['Contacto', '/aino/contact/'],
   ['Raw', '/landings/'],
 ];
 ---
 <BaseLayout
-  title="KOORO Studio — base Aino para webs modernas"
-  description="Banco de trabajo KOORO Studio: base Aino navegable para convertir referencias raw en webs modernas, editoriales y coherentes."
+  title="KOORO Studio — base KOORO para webs modernas"
+  description="Banco de trabajo KOORO Studio: base KOORO navegable para convertir referencias raw en webs modernas, editoriales y coherentes."
 >
-  <main class="source-base-shell" aria-label="KOORO Studio — base Aino para webs modernas">
+  <main class="source-base-shell" aria-label="KOORO Studio — base KOORO para webs modernas">
     <div class="source-base-ribbon" aria-label="Navegación de la base KOORO">
-      <a class="source-base-brand" href={ainoBase} target="aino-source" aria-label="Volver a la base Aino">
+      <a class="source-base-brand" href={ainoBase} target="aino-source" aria-label="Volver a la base KOORO">
         <strong>KOORO</strong>
         <span>Studio</span>
       </a>
       <nav aria-label="Rutas rápidas">
         {quickLinks.map(([label, href]) => <a href={href} target="aino-source">{label}</a>)}
       </nav>
-      <p class="source-base-meta">Aino source mount · no pátina</p>
+      <p class="source-base-meta">KOORO source mount · no pátina</p>
     </div>
     <iframe
       class="source-base-frame"
       src={ainoBase}
-      title="Source Aino montado como base visual para KOORO Studio"
+      title="Source KOORO montado como base visual para KOORO Studio"
       name="aino-source"
       loading="eager"
     ></iframe>
