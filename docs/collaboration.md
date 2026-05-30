@@ -17,28 +17,34 @@
 
 ## Forma de trabajar
 
-- `main` = estable
-- una rama por tarea relevante
-- PR o al menos commit con mensaje claro
-- documentar decisiones importantes en `docs/`
-- no tocar código de cliente real sin dejar contexto
+- Trabajar en pequeño: una idea, una demo o una mejora por tanda.
+- Enseñar pronto algo visible antes de complicar la parte técnica.
+- `main` queda estable; las pruebas van en una rama o lab.
+- Dejar un resumen claro de qué se cambió, qué se probó y qué queda pendiente.
+- Las decisiones importantes se apuntan en `docs/` para que Roberto, Diego o BMO no tengan que adivinar.
+- No desplegar, usar FTP/credenciales ni contactar leads/clientes desde agentes sin aprobación humana explícita.
 
 ## Qué debe hacer el colega al llegar
 
 1. Leer `README.md`
-2. Leer `docs/vision.md`
-3. Leer `docs/workflow.md`
-4. Leer `docs/ideal-client.md`
-5. Revisar `templates/`
-6. Revisar ejemplos en carpetas de webs
-7. Proponer mejoras al sistema
+2. Leer `AGENTS.md`
+3. Leer `docs/security-collaboration.md`
+4. Leer `docs/branch-pr-policy.md`
+5. Leer `docs/deploy-safe.md`
+6. Leer `docs/bmo-intake.md`
+7. Leer `docs/vision.md`
+8. Leer `docs/workflow.md`
+9. Leer `docs/ideal-client.md`
+10. Revisar `templates/`
+11. Revisar ejemplos en carpetas de webs
+12. Proponer mejoras al sistema
 
 ## Prioridades del colaborador
 
 1. Entender el sistema de captación
-2. Detectar huecos en el proceso
-3. Proponer un scaffold técnico reutilizable
-4. Ayudar a convertir ideas en demos rápidas
+2. Ayudar a que las demos parezcan vendibles, no ejercicios técnicos
+3. Detectar huecos en el proceso
+4. Proponer un scaffold técnico reutilizable solo si acelera la entrega
 5. Separar en repos por cliente cuando toque
 
 ## Decisiones técnicas abiertas

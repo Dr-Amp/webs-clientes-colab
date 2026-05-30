@@ -3,3 +3,10 @@ __pycache__/
 *.pyc
 .env
 .env.*
+!.env.example
+node_modules/
+dist/
+.astro/
+public/gimnasio-cai/
+public/hospital-veterinario-san-vicente/
+public/floristeria-tropical-garden/

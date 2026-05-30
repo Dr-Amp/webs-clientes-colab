@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const landings = await getCollection('landings');
+---
+<BaseLayout title="Ejemplos de webs locales" description="Ejemplos conceptuales de webs para negocios locales.">
+  <main class="site-shell">
+    <nav class="topbar" aria-label="Navegación principal">
+      <a class="brand-mark" href="/" aria-label="Volver al inicio">
+        <span class="brand-symbol">bl</span>
+        <span>bonita local</span>
+      </a>
+      <div class="nav-actions">
+        <a href="/">Inicio</a>
+        <a class="nav-cta" href="mailto:hola@example.com?subject=Quiero%20una%20web%20para%20mi%20negocio">Pedir presupuesto</a>
+      </div>
+    </nav>
+
+    <section class="hero-shell" aria-labelledby="examples-title">
+      <aside class="sticky-intro">
+        <p class="availability">Ejemplos conceptuales</p>
+        <div class="intro-card">
+          <p class="eyebrow">Demos para comparar enfoque</p>
+          <h1 id="examples-title">Ideas de web para negocios locales.</h1>
+          <p class="hero-lead">Estas propuestas sirven para revisar tono, estructura y llamadas a la acción antes de preparar una web real con contenido definitivo.</p>
+          <div class="hero-ctas">
+            <a class="button button-primary" href="/">Volver al inicio</a>
+          </div>
+        </div>
+      </aside>
+
+      <div class="editorial-scroll">
+        <div class="case-grid">
+          {landings.map((entry, index) => (
+            <article class="case-card botanical">
+              <div class="case-art" aria-hidden="true">
+                <span class="case-index">{String(index + 1).padStart(2, '0')}</span>
+                <div class="browser-line"></div>
+                <div class="case-title-bars"><i></i><i></i><i></i></div>
+                <div class="case-mosaic"><span></span><span></span><span></span></div>
+              </div>
+              <div class="case-copy">
+                <p>{entry.data.business.sector}</p>
+                <h2>{entry.data.business.name}</h2>
+                <span>{entry.data.business.city}</span>
+                <strong>{entry.data.seo.description}</strong>
+                {entry.data.rawDemoPath && <a class="button button-primary" href={entry.data.rawDemoPath}>Abrir ejemplo</a>}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,1 @@
+var e=e=>e.replace(/\/$/,""),a=e=>e[0].toUpperCase()+e.slice(1),r=e=>e.replace(/<[^>]+>/g,"").replace(/&nbsp;/g," ").replace(/\s+/g," ").trim();export{e as n,r,a as t};

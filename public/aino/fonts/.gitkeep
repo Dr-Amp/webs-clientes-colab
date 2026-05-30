@@ -1,0 +1,10 @@
+# Fonts Directory
+
+Place `inter-variable.woff2` here or run:
+
+```bash
+bash scripts/download-font.sh
+```
+
+Or download manually from:
+https://rsms.me/inter/

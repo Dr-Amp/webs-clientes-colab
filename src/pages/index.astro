@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const ainoBase = '/aino/';
+const quickLinks = [
+  ['Base', '/aino/'],
+  ['Work', '/aino/work/'],
+  ['Services', '/aino/services/'],
+  ['Contact', '/aino/contact/'],
+  ['Demos raw', '/landings/'],
+];
+---
+<BaseLayout
+  title="Casa Primera — base Aino para webs locales"
+  description="Base de desarrollo para el proyecto de webs de comercios locales, montada sobre el source Aino como referencia navegable."
+>
+  <main class="source-base-shell" aria-label="Base Aino para webs de comercios locales">
+    <div class="source-base-ribbon" aria-label="Navegación de la base">
+      <a class="source-base-brand" href={ainoBase} target="aino-source">casa primera / base aino</a>
+      <nav aria-label="Rutas rápidas">
+        {quickLinks.map(([label, href]) => <a href={href} target="aino-source">{label}</a>)}
+      </nav>
+    </div>
+    <iframe
+      class="source-base-frame"
+      src={ainoBase}
+      title="Source Aino montado como base visual para webs locales"
+      name="aino-source"
+      loading="eager"
+    ></iframe>
+  </main>
+</BaseLayout>
