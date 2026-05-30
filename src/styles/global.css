@@ -342,7 +342,7 @@ h1, h2, h3, p { text-wrap: balance; }
 .source-base-frame {
   display: block;
   width: 100vw;
-  height: 100dvh;
+  height: calc(100dvh - 60px);
   border: 0;
   background: #fff;
 }

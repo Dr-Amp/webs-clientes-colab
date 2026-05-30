@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">KOORO Studio wordmark</title>
+  <desc id="desc">Minimal editorial typographic KOORO wordmark.</desc>
+  <rect width="1200" height="320" fill="#f4f1e8"/>
+  <g fill="#080808" font-family="Arial Black, Inter, Helvetica, sans-serif" font-weight="900" letter-spacing="-28">
+    <text x="46" y="228" font-size="214">KOORO</text>
+  </g>
+  <g fill="none" stroke="#080808" stroke-width="8">
+    <circle cx="429" cy="151" r="60"/>
+    <circle cx="711" cy="151" r="60"/>
+  </g>
+  <text x="52" y="286" fill="#080808" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="23" letter-spacing="7">STUDIO / WEB SERVICES / FROM LOCALS TO LOCALS</text>
+</svg>
