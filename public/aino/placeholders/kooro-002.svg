@@ -1,18 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2000" role="img" aria-labelledby="title desc">
-<title id="title">KOORO placeholder 002</title>
-<desc id="desc">Editorial placeholder graphic for KOORO Studio Web Services.</desc>
-<rect width="1600" height="2000" fill="#080808"/>
-<rect x="72" y="72" width="1456" height="1856" fill="none" stroke="#f4f1e8" stroke-width="6"/>
-<rect x="112" y="112" width="440" height="54" fill="#ff6b35"/>
-<text x="110" y="260" fill="#f4f1e8" font-family="Arial Black, Helvetica, sans-serif" font-size="92" letter-spacing="-6">KOORO</text>
-<text x="111" y="340" fill="#f4f1e8" font-family="Arial, Helvetica, sans-serif" font-size="34" letter-spacing="8">STUDIO / WEB SERVICES</text>
-<g fill="none" stroke="#f4f1e8" stroke-width="18" opacity="0.92">
-  <circle cx="430" cy="820" r="172"/>
-  <circle cx="800" cy="820" r="172"/>
-  <path d="M1008 648 L1288 992 M1288 648 L1008 992"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+<title id="title">Refugio de reservas y señales</title><desc id="desc">Ilustración editorial KOORO: territorio local, señales y un compañero amable.</desc>
+<rect width="1200" height="1500" fill="#c7e6b8"/>
+<g fill="none" stroke="#17251f" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+<path d="M150 180 H1050 V1320 H150 Z"/>
+<path d="M220 285 C410 245 520 330 690 290 C820 260 930 305 1000 380" opacity=".55"/>
+<path d="M260 920 L540 570 L830 920 Z" fill="rgba(255,255,255,.28)"/>
+<path d="M505 845 C545 790 630 790 675 845 C710 890 690 970 590 980 C500 988 455 900 505 845"/>
+<circle cx="455" cy="812" r="14" fill="#17251f"/><circle cx="575" cy="812" r="14" fill="#17251f"/>
+<path d="M455 900 C510 940 570 940 625 900"/>
+<path d="M235 1235 H965 M235 360 H420 M780 1220 L930 1065 M220 1090 L360 980" opacity=".65"/>
 </g>
-<text x="104" y="1160" fill="#f4f1e8" font-family="Arial Black, Helvetica, sans-serif" font-size="150" letter-spacing="-11">BOOKING FLOW</text>
-<text x="112" y="1242" fill="#f4f1e8" font-family="Arial, Helvetica, sans-serif" font-size="39" letter-spacing="5">APPOINTMENTS / FORMS</text>
-<text x="112" y="1720" fill="#f4f1e8" font-family="Arial, Helvetica, sans-serif" font-size="31" letter-spacing="7">FROM LOCALS TO LOCALS / 002</text>
-<rect x="112" y="1772" width="1376" height="18" fill="#ff6b35"/>
+<g fill="#17251f" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="800" letter-spacing="-2">
+<text x="220" y="220" font-size="38">KOORO / REFUGIO DE RESERVAS Y SEÑALES</text>
+<text x="220" y="1300" font-size="30">mapa · señal · compañero · pantalla</text>
+</g>
 </svg>

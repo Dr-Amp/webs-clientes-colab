@@ -331,20 +331,26 @@ h1, h2, h3, p { text-wrap: balance; }
   .section-kicker > p, .demo-copy dd, .service-row p, .method-steps p, .proof-cta p, .final-cta p:not(.eyebrow) { text-wrap: pretty; }
 }
 
-/* KOORO source-base mount: keep Aino clean, no translucent grey patina */
+/* KOORO source-base mount: show the Aino/KOORO preview as the product, not a separate wrapper. */
+body:has(.source-base-shell) {
+  background: #f3efe3;
+}
 .source-base-shell {
   position: relative;
   min-height: 100dvh;
-  background: #050505;
-  color: #f7f4ec;
+  background: #f3efe3;
+  color: #080806;
   overflow: hidden;
 }
 .source-base-frame {
   display: block;
   width: 100vw;
-  height: calc(100dvh - 60px);
+  height: 100dvh;
   border: 0;
-  background: #fff;
+  background: #f3efe3;
+}
+.source-base-ribbon {
+  display: none;
 }
 .source-base-ribbon {
   position: fixed;
@@ -753,3 +759,37 @@ h1, h2, h3, p { text-wrap: balance; }
   .raw-ui-title { font-size: clamp(3.2rem, 17vw, 6rem); }
   .raw-ui-layout { grid-template-columns: repeat(2, minmax(58px, 22vw)); }
 }
+
+
+/* KOORO second correction: living editorial footer + safer framed preview */
+.kooro-footer-sigil {
+  display: grid;
+  gap: .18em;
+  color: inherit;
+  text-decoration: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  line-height: .86;
+  text-transform: uppercase;
+  letter-spacing: -.08em;
+}
+.kooro-footer-sigil .word {
+  font-size: clamp(3.5rem, 13vw, 12rem);
+  font-weight: 900;
+}
+.kooro-footer-sigil .face,
+.kooro-footer-sigil .trail {
+  font-size: clamp(.8rem, 1.8vw, 1.4rem);
+  letter-spacing: .04em;
+  opacity: .72;
+}
+.kooro-footer-sigil:is(:hover, :focus-visible) .face { animation: kooro-blink .7s steps(2, end) infinite; }
+.kooro-footer-sigil:is(:hover, :focus-visible) .trail::after { content: '  ***'; }
+@keyframes kooro-blink { 50% { transform: translateX(.18em); opacity: 1; } }
+@media (max-width: 520px) {
+  .kooro-footer-sigil .word { font-size: clamp(2.6rem, 18vw, 5rem); }
+  .kooro-footer-sigil .trail { font-size: .72rem; }
+}
+
+/* KOORO preview wrapper final override */
+.source-base-frame { height: 100dvh; background: #f3efe3; }
+.source-base-ribbon { display: none !important; }

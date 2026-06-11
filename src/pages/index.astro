@@ -3,31 +3,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const ainoBase = '/aino/';
 const quickLinks = [
-  ['Work', '/aino/work/'],
-  ['Services', '/aino/services/'],
-  ['About', '/aino/about/'],
-  ['Contact', '/aino/contact/'],
+  ['Trabajos', '/aino/work/'],
+  ['Servicios', '/aino/services/'],
+  ['Nosotros', '/aino/about/'],
+  ['Contacto', '/aino/contact/'],
 ];
 ---
 <BaseLayout
-  title="KOORO Studio — Web Services"
-  description="From locals to locals. KOORO Studio designs and builds editorial, practical websites for independent local businesses."
+  title="KOORO Studio — Sistemas web con pulso editorial"
+  description="KOORO Studio diseña sistemas web editoriales para marcas y negocios con pulso propio: identidad, relato, interfaz y pequeños rituales digitales."
 >
-  <main class="source-base-shell" aria-label="KOORO Studio — Web Services">
+  <main class="source-base-shell" aria-label="KOORO Studio — Servicios web">
     <div class="source-base-ribbon" aria-label="KOORO Studio navigation">
       <a class="source-base-brand" href={ainoBase} target="aino-source" aria-label="Volver a KOORO Studio">
         <strong>KOORO Studio</strong>
-        <span>Web Services</span>
+        <span>Sistemas web con pulso editorial</span>
       </a>
       <nav aria-label="Rutas rápidas">
         {quickLinks.map(([label, href]) => <a href={href} target="aino-source">{label}</a>)}
       </nav>
-      <p class="source-base-meta">From locals to locals</p>
+      <p class="source-base-meta">Web nativa, identidad viva</p>
     </div>
     <iframe
       class="source-base-frame"
       src={ainoBase}
-      title="KOORO Studio source-style website"
+      title="Web de KOORO Studio"
       name="aino-source"
       loading="eager"
     ></iframe>

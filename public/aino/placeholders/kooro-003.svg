@@ -1,18 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2000" role="img" aria-labelledby="title desc">
-<title id="title">KOORO placeholder 003</title>
-<desc id="desc">Editorial placeholder graphic for KOORO Studio Web Services.</desc>
-<rect width="1600" height="2000" fill="#f4f1e8"/>
-<rect x="72" y="72" width="1456" height="1856" fill="none" stroke="#080808" stroke-width="6"/>
-<rect x="112" y="112" width="440" height="54" fill="#99d6ff"/>
-<text x="110" y="260" fill="#080808" font-family="Arial Black, Helvetica, sans-serif" font-size="92" letter-spacing="-6">KOORO</text>
-<text x="111" y="340" fill="#080808" font-family="Arial, Helvetica, sans-serif" font-size="34" letter-spacing="8">STUDIO / WEB SERVICES</text>
-<g fill="none" stroke="#080808" stroke-width="18" opacity="0.92">
-  <circle cx="430" cy="820" r="172"/>
-  <circle cx="800" cy="820" r="172"/>
-  <path d="M1008 648 L1288 992 M1288 648 L1008 992"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+<title id="title">Casa de calma para una clínica</title><desc id="desc">Ilustración editorial KOORO: territorio local, señales y un compañero amable.</desc>
+<rect width="1200" height="1500" fill="#b9d9ff"/>
+<g fill="none" stroke="#0f2034" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+<path d="M150 180 H1050 V1320 H150 Z"/>
+<path d="M220 285 C410 245 520 330 690 290 C820 260 930 305 1000 380" opacity=".55"/>
+<path d="M290 760 C380 650 520 620 650 690 C775 760 820 910 750 1035 C665 1185 410 1180 310 1040 C250 955 230 840 290 760" fill="rgba(255,255,255,.28)"/>
+<path d="M410 870 L650 870 M530 750 L530 990"/>
+<circle cx="455" cy="812" r="14" fill="#0f2034"/><circle cx="575" cy="812" r="14" fill="#0f2034"/>
+<path d="M455 900 C510 940 570 940 625 900"/>
+<path d="M235 1235 H965 M235 360 H420 M780 1220 L930 1065 M220 1090 L360 980" opacity=".65"/>
 </g>
-<text x="104" y="1160" fill="#080808" font-family="Arial Black, Helvetica, sans-serif" font-size="150" letter-spacing="-11">CLINIC TRUST</text>
-<text x="112" y="1242" fill="#080808" font-family="Arial, Helvetica, sans-serif" font-size="39" letter-spacing="5">CLEAR PROOF / CONTACT</text>
-<text x="112" y="1720" fill="#080808" font-family="Arial, Helvetica, sans-serif" font-size="31" letter-spacing="7">FROM LOCALS TO LOCALS / 003</text>
-<rect x="112" y="1772" width="1376" height="18" fill="#99d6ff"/>
+<g fill="#0f2034" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="800" letter-spacing="-2">
+<text x="220" y="220" font-size="38">KOORO / CASA DE CALMA PARA UNA CLÍNICA</text>
+<text x="220" y="1300" font-size="30">mapa · señal · compañero · pantalla</text>
+</g>
 </svg>
